@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: net.adriantodt.thewolf.stories
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [annotation-api, app-name, gradle, http-client, jackson-databind, jib, junit, kotlin, kotlin-application, kotlin-build, kotlin-extension-functions, logback, micronaut-build, netty-server, readme, shade, yaml]
