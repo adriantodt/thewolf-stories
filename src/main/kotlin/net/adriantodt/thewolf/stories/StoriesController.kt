@@ -2,6 +2,7 @@ package net.adriantodt.thewolf.stories
 
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
+import io.micronaut.http.MediaType
 import io.micronaut.http.MutableHttpResponse
 import io.micronaut.http.annotation.*
 import net.adriantodt.thewolf.stories.view.badGatewayPage
@@ -14,10 +15,10 @@ class StoriesController {
     private val json = "application/json"
     private val xml = "application/xml"
 
-    @Get
+    @Get(produces = [MediaType.ALL])
     fun lostInTheWoods(
         @Header("Accept") acceptHeader: String?,
-        @Header("Host") hostHeader: String?
+        @Header("Host") hostHeader: String?,
     ): MutableHttpResponse<String> {
         val type = MIMEParse.bestMatch(listOf(html, json, text, xml), acceptHeader ?: text)
         val res = HttpResponse.notFound<String>()
@@ -56,10 +57,34 @@ class StoriesController {
         }
     }
 
-    @Get("/traefik/502")
+    @Put(produces = [MediaType.ALL])
+    fun lostInTheWoodsPut(
+        @Header("Accept") acceptHeader: String?,
+        @Header("Host") hostHeader: String?,
+    ) = lostInTheWoods(acceptHeader, hostHeader)
+
+    @Post(produces = [MediaType.ALL])
+    fun lostInTheWoodsPost(
+        @Header("Accept") acceptHeader: String?,
+        @Header("Host") hostHeader: String?,
+    ) = lostInTheWoods(acceptHeader, hostHeader)
+
+    @Patch(produces = [MediaType.ALL])
+    fun lostInTheWoodsPatch(
+        @Header("Accept") acceptHeader: String?,
+        @Header("Host") hostHeader: String?,
+    ) = lostInTheWoods(acceptHeader, hostHeader)
+
+    @Delete(produces = [MediaType.ALL])
+    fun lostInTheWoodsDelete(
+        @Header("Accept") acceptHeader: String?,
+        @Header("Host") hostHeader: String?,
+    ) = lostInTheWoods(acceptHeader, hostHeader)
+
+    @Get("/traefik/502", produces = [MediaType.ALL])
     fun aloneInTheWarehouse(
         @Header("Accept") acceptHeader: String?,
-        @Header("Host") hostHeader: String?
+        @Header("Host") hostHeader: String?,
     ): MutableHttpResponse<String> {
         val type = MIMEParse.bestMatch(listOf(html, json, text, xml), acceptHeader ?: text)
         val res = HttpResponse.status<String>(HttpStatus.BAD_GATEWAY).contentType(type)
@@ -97,27 +122,27 @@ class StoriesController {
         }
     }
 
-    @Put("/traefik/502")
+    @Put("/traefik/502", produces = [MediaType.ALL])
     fun aloneInTheWarehousePut(
         @Header("Accept") acceptHeader: String?,
-        @Header("Host") hostHeader: String?
+        @Header("Host") hostHeader: String?,
     ) = aloneInTheWarehouse(acceptHeader, hostHeader)
 
-    @Post("/traefik/502")
+    @Post("/traefik/502", produces = [MediaType.ALL])
     fun aloneInTheWarehousePost(
         @Header("Accept") acceptHeader: String?,
-        @Header("Host") hostHeader: String?
+        @Header("Host") hostHeader: String?,
     ) = aloneInTheWarehouse(acceptHeader, hostHeader)
 
-    @Patch("/traefik/502")
+    @Patch("/traefik/502", produces = [MediaType.ALL])
     fun aloneInTheWarehousePatch(
         @Header("Accept") acceptHeader: String?,
-        @Header("Host") hostHeader: String?
+        @Header("Host") hostHeader: String?,
     ) = aloneInTheWarehouse(acceptHeader, hostHeader)
 
-    @Delete("/traefik/502")
+    @Delete("/traefik/502", produces = [MediaType.ALL])
     fun aloneInTheWarehouseDelete(
         @Header("Accept") acceptHeader: String?,
-        @Header("Host") hostHeader: String?
+        @Header("Host") hostHeader: String?,
     ) = aloneInTheWarehouse(acceptHeader, hostHeader)
 }
