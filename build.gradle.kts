@@ -54,6 +54,9 @@ tasks {
             jvmTarget = "17"
         }
     }
+    jib {
+        from.image = "openjdk:17-alpine"
+    }
 }
 graalvmNative.toolchainDetection.set(false)
 micronaut {
