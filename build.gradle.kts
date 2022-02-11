@@ -54,11 +54,6 @@ tasks {
             jvmTarget = "17"
         }
     }
-    jib {
-        to {
-            image = "gcr.io/myapp/jib-image"
-        }
-    }
 }
 graalvmNative.toolchainDetection.set(false)
 micronaut {
