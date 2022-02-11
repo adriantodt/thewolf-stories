@@ -22,7 +22,6 @@ class StoriesController {
         val type = MIMEParse.bestMatch(listOf(html, json, text, xml), acceptHeader ?: text)
         val res = HttpResponse.notFound<String>()
             .contentType(type)
-            .header("", "")
 
         return when (type) {
             html -> res.body(notFoundPage(hostHeader))

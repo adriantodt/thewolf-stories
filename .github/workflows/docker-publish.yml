@@ -67,7 +67,7 @@ jobs:
 
       - name: Prepare Build Context
         if: ${{ github.event_name != 'pull_request' }}
-        run: gradle dockerPrepareContext buildNativeLayersTask
+        run: gradle --no-daemon dockerPrepareContext buildNativeLayersTask
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
