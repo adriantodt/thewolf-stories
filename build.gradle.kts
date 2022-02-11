@@ -10,7 +10,7 @@ plugins {
 version = "0.1"
 group = "net.adriantodt.thewolf.stories"
 
-val kotlinVersion = project.properties.get("kotlinVersion")
+val kotlinVersion = project.properties["kotlinVersion"]
 repositories {
     mavenCentral()
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven") }
