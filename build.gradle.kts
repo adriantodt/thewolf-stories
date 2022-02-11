@@ -56,7 +56,7 @@ tasks {
     }
     dockerPushNative {
         if (project.hasProperty("dockerImage")) {
-            images.add(project.property("dockerImage") as String)
+            images.add(project.property("dockerImage") as String + ":" + project.version)
         }
     }
 }
