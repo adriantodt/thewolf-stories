@@ -27,7 +27,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     // include for JVM target
-    implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.5")
+    implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.8.0")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
 
